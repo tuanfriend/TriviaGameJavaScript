@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body{
+            width: 970px;
+            border: 2px solid black;
+            margin: 0px auto;
+            min-height: 500px;
+        }
+        h1{
+            text-align: center;
+
+        }
+        span{
+            
+            padding: 10px;
+            font-size: 20pt;
+            background-color: brown;
+            color: bisque;
+        }
+        .block{
+            vertical-align: top;
+            display: inline-block;
+            width: 293px;
+            margin-left: 21px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        .geo{
+            margin-top: 20px;
+            margin-left: -3px;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(167, 179, 7);
+            border-radius: 10px;
+            text-align: center;
+        }
+       
+    </style>
+    <script>
+        var sciencedata;
+        $(document).ready(function () {
+            $('#geo1').click(function () {
+                $.get("https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple", displayName)
+                function displayName(data) {
+                    var question = data.results[0].question;
+                    var answer = "<ul><li> "data.results[0].correct_answer
+                    $('#ques1').replaceWith(question)
+                    console.log(data.question);
+                }
+            })     // Question 1!
+
+            $('#geo2').click(function () {
+                $.get("https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple", displayName)
+                function displayName(data) {
+                    var question2 = data.results[1].question;
+                    $('#ques2').replaceWith(question2)
+                    console.log(data.question);
+                }
+            })     // Question 2!
+
+            $('#geo3').click(function () {
+                $.get("https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple", displayName)
+                function displayName(data) {
+                    var question3 = data.results[2].question;
+                    $('#ques3').replaceWith(question3)
+                    console.log(data.question);
+                }
+            })     // Question 3!
+
+            $('#ent1').click(function () {
+                $.get("https://opentdb.com/api.php?amount=10&category=32&difficulty=medium&type=multiple", displayName)
+                function displayName(data) {
+                    var ranumber = Math.floor(Math.random() * 10);
+                    var question4 = data.results[ranumber].question;
+                    $('#ques4').replaceWith(question4)
+                    console.log(data.question);
+                }
+            })     // Question 4!
+
+            $('#ent2').click(function () {
+                $.get("https://opentdb.com/api.php?amount=3&category=32&difficulty=medium&type=multiple", displayName)
+                function displayName(data) {
+                    var ranumber = Math.floor(Math.random() * 10);
+                    var question5 = data.results[ranumber].question;
+                    $('#ques5').replaceWith(question5)
+                    console.log(data.question);
+                }
+            })     // Question 5!
+
+            $('#ent3').click(function () {
+                $.get("https://opentdb.com/api.php?amount=3&category=32&difficulty=medium&type=multiple", displayName)
+                function displayName(data) {
+                    var ranumber = Math.floor(Math.random() * 10);
+                    var question6 = data.results[ranumber].question;
+                    $('#ques6').replaceWith(question6)
+                    console.log(data.question);
+                }
+            })     // Question 6!
+
+
+            $('#sci1').click(function () {
+                $.get("https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple", displayName)
+                function displayName(data) {
+                    var question7 = data.results[0].question;
+                    $('#ques7').replaceWith(question7)
+                }
+            })     // Question 7!
+
+            $('#sci2').click(function () {
+                $.get("https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple", displayName)
+                function displayName(data) {
+                    var question8 = data.results[1].question;
+                    $('#ques8').replaceWith(question8)
+                }
+            })     // Question 8!
+
+            $('#sci3').click(function () {
+                $.get("https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple", displayName)
+                function displayName(data) {
+                    var question9 = data.results[2].question;
+                    $('#ques9').replaceWith(question9)
+                }
+            })     // Question 9!
+
+        });
+            
+    </script>
+</head>
+<body>
+    <h1>Trivia Night</h1>
+    <br>
+    <div class="block">
+            <span>Geography</span>
+            <br>
+            <button id="geo1" class="geo"><p id="ques1">1000</p></button>
+            <br>
+            <button id="geo2" class="geo"><p id="ques2">2000</p></button>
+            <br>
+            <button id="geo3" class="geo"><p id="ques3">1500</p></button>
+            
+    </div>
+    <div class="block">
+            <span>Entertaiment</span>
+            <br>
+            <button id="ent1" class="geo"><p id="ques4">1000</p></button>
+            <br>
+            <button id="ent2" class="geo"><p id="ques5">2000</p></button>
+            <br>
+            <button id="ent3" class="geo"><p id="ques6">1500</p></button>
+    </div>
+    <div class="block">
+            <span>Science</span>
+            <br>
+            <button id="sci1" class="geo"><p id="ques7">5000</p></button>
+            <br>
+            <button id="sci2" class="geo"><p id="ques8">2000</p></button>
+            <br>
+            <button id="sci3" class="geo"><p id="ques9">1500</p></button>
+    </div>
+</body>
+</html>
